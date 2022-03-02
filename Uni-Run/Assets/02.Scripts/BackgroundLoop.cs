@@ -1,24 +1,24 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundLoop : MonoBehaviour
 {
-    // ¹è°æÀÇ °¡·Î ±æÀÌ
+    // ë°°ê²½ì˜ ê°€ë¡œ ê¸¸ì´
     private float width;
 
     private void Awake()
     {
-        // °¡·Î ±æÀÌ¸¦ ÃøÁ¤ÇÏ´Â °Å¸®
-        // BoxCollider2D ÄÄÆ÷³ÍÆ®ÀÇ Size ÇÊµåÀÇ
-        // X°ªÀ» °¡·Î ±æÀÌ·Î »ç¿ë.
+        // ê°€ë¡œ ê¸¸ì´ë¥¼ ì¸¡ì •í•˜ëŠ” ê±°ë¦¬
+        // BoxCollider2D ì»´í¬ë„ŒíŠ¸ì˜ Size í•„ë“œì˜
+        // Xê°’ì„ ê°€ë¡œ ê¸¸ì´ë¡œ ì‚¬ìš©.
         BoxCollider2D backgroundCollider = GetComponent<BoxCollider2D>();
         width = backgroundCollider.size.x;
     }
 
     void Update()
     {
-        // ÇöÀç À§Ä¡°¡ ¿øÁ¡À¸·Î ¿ŞÂÊÀ¸·Î width ÀÌ»ó ÀÌµ¿ÇßÀ» ¶§ À§Ä¡¸¦ Àç¹èÄ¡
+        // í˜„ì¬ ìœ„ì¹˜ê°€ ì›ì ìœ¼ë¡œ ì™¼ìª½ìœ¼ë¡œ width ì´ìƒ ì´ë™í–ˆì„ ë•Œ ìœ„ì¹˜ë¥¼ ì¬ë°°ì¹˜
         if(transform.position.x <= -width)
         {
             Reposition();
@@ -27,8 +27,8 @@ public class BackgroundLoop : MonoBehaviour
 
     private void Reposition()
     {
-        // À§Ä¡¸¦ Àç¹èÄ¡ÇÏ´Â ¸Ş¼­µå
-        // ÇöÀç À§Ä¡¿¡¼­ ¿À¸¥ÂÊÀ¸·Î °¡·Î ±æÀÌ *2 ¸¸Å­ ÀÌµ¿
+        // ìœ„ì¹˜ë¥¼ ì¬ë°°ì¹˜í•˜ëŠ” ë©”ì„œë“œ
+        // í˜„ì¬ ìœ„ì¹˜ì—ì„œ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê°€ë¡œ ê¸¸ì´ *2 ë§Œí¼ ì´ë™
         //Vector2 offset = new Vector2(width * 2f, 0);
         //transform.position = (Vector2)transform.position + offset;
         transform.position = transform.position + new Vector3(width * 2, 0f, 0f);
