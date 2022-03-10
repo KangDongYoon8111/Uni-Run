@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool isGameover = false; // 게임오버 상태
     public Text scoreText; // 점수 출력 UI 텍스트
     public GameObject gameoverUI; // 게임오버시 활성 오브젝트
+    public GameObject menuPanel;
 
     private int score = 0; // 게임점수
 
@@ -63,5 +64,20 @@ public class GameManager : MonoBehaviour
     {
         isGameover = true;
         gameoverUI.SetActive(true);
+        menuPanel.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Exit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
