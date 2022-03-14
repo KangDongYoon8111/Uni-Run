@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameoverUI; // 게임오버시 활성 오브젝트
     public GameObject menuPanel;
 
+    public int hpCount = 2;
+    public Text hpText;
+
     private int score = 0; // 게임점수
 
     // 게임 시작과 동시에 싱글턴을 구성
@@ -36,6 +39,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("씬에 두 개 이상의 게임 매니저가 존재합니다!");
             Destroy(gameObject);
         }
+    }
+
+    private void OnEnable()
+    {
+        hpText.text = hpCount.ToString();
     }
 
     void Update()
@@ -79,5 +87,12 @@ public class GameManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public bool Crash()
+    {
+        hpText.text = ""+--hpCount;
+
+        return hpCount <= 0 ? true : false;
     }
 }

@@ -1690,6 +1690,8 @@ MonoBehaviour:
   scoreText: {fileID: 2088465429}
   gameoverUI: {fileID: 2104073511}
   menuPanel: {fileID: 177776140}
+  hpCount: 2
+  hpText: {fileID: 828008373}
 --- !u!4 &1082299775
 Transform:
   m_ObjectHideFlags: 0

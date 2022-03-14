@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dead
+  - Thorn
   layers:
   - Default
   - TransparentFX
